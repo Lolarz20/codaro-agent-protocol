@@ -1,0 +1,58 @@
+{
+  "name": "codaro-agent-protocol",
+  "version": "0.1.0",
+  "description": "Provider protocol adapters and offline conformance tests for multi-turn tool calling across OpenAI, Gemini and Anthropic.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Lolarz20/codaro-agent-protocol.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lolarz20/codaro-agent-protocol/issues"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./conformance": {
+      "types": "./dist/conformance/index.d.ts",
+      "import": "./dist/conformance/index.js"
+    },
+    "./experimental/reasoning-recovery": {
+      "types": "./dist/experimental/reasoning-recovery.d.ts",
+      "import": "./dist/experimental/reasoning-recovery.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/",
+    "docs/",
+    "examples/",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "node --test test/*.test.mjs",
+    "test:coverage": "node --experimental-test-coverage --test test/*.test.mjs",
+    "pack:check": "node scripts/pack-check.mjs",
+    "verify": "npm run clean && npm run typecheck && npm run lint && npm run build && npm run test:coverage && npm run pack:check"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.12",
+    "eslint": "10.13.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.0"
+  }
+}
