@@ -50,7 +50,7 @@
     "verify": "npm run clean && npm run typecheck && npm run lint && npm run build && npm run test:coverage && npm run pack:check"
   },
   "devDependencies": {
-    "@types/node": "22.18.12",
+    "@types/node": "26.6.5",
     "eslint": "10.13.0",
     "typescript": "5.9.3",
     "typescript-eslint": "8.72.0"
